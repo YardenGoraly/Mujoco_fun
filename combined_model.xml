@@ -1,0 +1,443 @@
+<mujoco model="sawyer">
+  <compiler autolimits="true" angle="radian"/>
+  <option impratio="10" integrator="implicitfast" cone="elliptic"/>
+  <default>
+    <default class="/">
+      <default class="sawyer">
+        <material specular="0.5" shininess="0.25"/>
+        <joint axis="0 0 1"/>
+        <site group="4" rgba="0.5 0.5 0.5 0.29999999999999999" size="0.001"/>
+        <general dyntype="none" biastype="affine"/>
+        <default class="visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2"/>
+        </default>
+        <default class="collision">
+          <geom type="capsule" group="3" rgba="0.5 0.5 0.5 1"/>
+          <default class="eef_collision">
+            <geom type="cylinder"/>
+          </default>
+        </default>
+        <default class="large_joint">
+          <joint armature="1" damping="0.10000000000000001" frictionloss="0.29999999999999999"/>
+          <general forcerange="-80 80" gainprm="800" biasprm="0 -800 -80"/>
+        </default>
+        <default class="medium_joint">
+          <joint armature="1" damping="0.10000000000000001" frictionloss="0.29999999999999999"/>
+          <general forcerange="-40 40" gainprm="800" biasprm="0 -800 -80"/>
+        </default>
+        <default class="small_joint">
+          <joint armature="1" damping="0.10000000000000001" frictionloss="0.10000000000000001"/>
+          <general forcerange="-9 9" gainprm="500" biasprm="0 -500 -50"/>
+        </default>
+      </default>
+    </default>
+    <default class="allegro_right/">
+      <default class="allegro_right/allegro_right">
+        <joint axis="0 1 0" damping="0.10000000000000001"/>
+        <geom density="800"/>
+        <position kp="1"/>
+        <default class="allegro_right/visual">
+          <geom type="mesh" contype="0" conaffinity="0" group="2" material="allegro_right/black"/>
+          <default class="allegro_right/palm_visual">
+            <geom mesh="allegro_right/base_link"/>
+          </default>
+          <default class="allegro_right/base_visual">
+            <geom mesh="allegro_right/link_0.0"/>
+          </default>
+          <default class="allegro_right/proximal_visual">
+            <geom mesh="allegro_right/link_1.0"/>
+          </default>
+          <default class="allegro_right/medial_visual">
+            <geom mesh="allegro_right/link_2.0"/>
+          </default>
+          <default class="allegro_right/distal_visual">
+            <geom mesh="allegro_right/link_3.0"/>
+          </default>
+          <default class="allegro_right/fingertip_visual">
+            <geom material="allegro_right/white" pos="0 0 0.026700000000000002" mesh="allegro_right/link_3.0_tip"/>
+          </default>
+          <default class="allegro_right/thumbtip_visual">
+            <geom material="allegro_right/white" pos="0 0 0.042299999999999997" mesh="allegro_right/link_15.0_tip"/>
+          </default>
+        </default>
+        <default class="allegro_right/collision">
+          <geom type="box" group="3" mass="0"/>
+          <default class="allegro_right/palm_collision">
+            <geom size="0.020400000000000001 0.056500000000000002 0.047500000000000001" pos="-0.0092999999999999992 0 -0.047500000000000001"/>
+          </default>
+          <default class="allegro_right/base_collision">
+            <geom size="0.0097999999999999997 0.01375 0.0082000000000000007" pos="0 0 0.0082000000000000007"/>
+            <default class="allegro_right/thumb_base_collision">
+              <geom size="0.017899999999999999 0.017000000000000001 0.022749999999999999" pos="-0.017899999999999999 0.0089999999999999993 0.014500000000000001"/>
+            </default>
+          </default>
+          <default class="allegro_right/proximal_collision">
+            <geom size="0.0097999999999999997 0.01375 0.027" pos="0 0 0.027"/>
+            <default class="allegro_right/thumb_proximal_collision">
+              <geom size="0.0097999999999999997 0.01375 0.0088500000000000002" pos="0 0 0.0088500000000000002"/>
+            </default>
+          </default>
+          <default class="allegro_right/medial_collision">
+            <geom size="0.0097999999999999997 0.01375 0.019199999999999998" pos="0 0 0.019199999999999998"/>
+            <default class="allegro_right/thumb_medial_collision">
+              <geom size="0.0097999999999999997 0.01375 0.025700000000000001" pos="0 0 0.025700000000000001"/>
+            </default>
+          </default>
+          <default class="allegro_right/distal_collision">
+            <geom size="0.0097999999999999997 0.01375 0.0080000000000000002" pos="0 0 0.0080000000000000002"/>
+            <default class="allegro_right/thumb_distal_collision">
+              <geom size="0.0097999999999999997 0.01375 0.015699999999999999" pos="0 0 0.015699999999999999"/>
+            </default>
+          </default>
+          <default class="allegro_right/fingertip_collision">
+            <geom type="capsule" size="0.012 0.01" pos="0 0 0.019"/>
+            <default class="allegro_right/thumbtip_collision">
+              <geom type="capsule" size="0.012 0.0080000000000000002" pos="0 0 0.035000000000000003"/>
+            </default>
+          </default>
+        </default>
+        <default class="allegro_right/base">
+          <joint axis="0 0 1" range="-0.46999999999999997 0.46999999999999997"/>
+          <position ctrlrange="-0.46999999999999997 0.46999999999999997"/>
+        </default>
+        <default class="allegro_right/proximal">
+          <joint range="-0.19600000000000001 1.6100000000000001"/>
+          <position ctrlrange="-0.19600000000000001 1.6100000000000001"/>
+        </default>
+        <default class="allegro_right/medial">
+          <joint range="-0.17399999999999999 1.7090000000000001"/>
+          <position ctrlrange="-0.17399999999999999 1.7090000000000001"/>
+        </default>
+        <default class="allegro_right/distal">
+          <joint range="-0.22700000000000001 1.6180000000000001"/>
+          <position ctrlrange="-0.22700000000000001 1.6180000000000001"/>
+        </default>
+        <default class="allegro_right/thumb_base">
+          <joint axis="-1 0 0" range="0.26300000000000001 1.3959999999999999"/>
+          <position ctrlrange="0.26300000000000001 1.3959999999999999"/>
+        </default>
+        <default class="allegro_right/thumb_proximal">
+          <joint axis="0 0 1" range="-0.105 1.163"/>
+          <position ctrlrange="-0.105 1.163"/>
+        </default>
+        <default class="allegro_right/thumb_medial">
+          <joint range="-0.189 1.6439999999999999"/>
+          <position ctrlrange="-0.189 1.6439999999999999"/>
+        </default>
+        <default class="allegro_right/thumb_distal">
+          <joint range="-0.16200000000000001 1.7190000000000001"/>
+          <position ctrlrange="-0.16200000000000001 1.7190000000000001"/>
+        </default>
+      </default>
+    </default>
+  </default>
+  <asset>
+    <material name="red" class="sawyer" rgba="0.5 0.10000000000000001 0.10000000000000001 1"/>
+    <material name="black" class="sawyer" rgba="0.20000000000000001 0.20000000000000001 0.20000000000000001 1"/>
+    <material name="white" class="sawyer" rgba="1 1 1 1"/>
+    <material name="off_white" class="sawyer" rgba="0.792157 0.819608 0.92941200000000002 1"/>
+    <material name="Mtl3" class="sawyer" rgba="0.168627 0.15294099999999999 0.141176 1"/>
+    <material name="Mtl4" class="sawyer" rgba="1 0.403922 0.121569 1"/>
+    <material name="Mtl7" class="sawyer" rgba="0.25097999999999998 0.25097999999999998 0.25097999999999998 1"/>
+    <material name="dark_black" class="sawyer" specular="0" shininess="0.25" rgba="0 0 0 1"/>
+    <material name="Mtl5.001" class="sawyer" rgba="0.87058800000000003 0.30980400000000002 0.086275000000000004 1"/>
+    <material name="Mtl7.001" class="sawyer" rgba="0.69803899999999997 0.69803899999999997 0.69803899999999997 1"/>
+    <material name="Mtl5.002" class="sawyer" rgba="0.105882 0.105882 0.105882 1"/>
+    <material name="Mtl6.002" class="sawyer" rgba="0.74902000000000002 0.74902000000000002 0.74902000000000002 1"/>
+    <material name="Mtl4_001" class="sawyer" rgba="0.86666699999999997 0.90588199999999997 1 1"/>
+    <material name="Mtl5_001" class="sawyer" rgba="0.50196099999999999 0.50196099999999999 0.50196099999999999 1"/>
+    <mesh name="pedestal" class="/" file="pedestal-a8ce289c70ef2fbe3656936625519dab77a3e449.obj"/>
+    <mesh name="base_0" class="/" file="base_0-e3c69b11217cc99a6ebef35034e82ce6ad62544f.obj"/>
+    <mesh name="base_1" class="/" file="base_1-1b27cf0ab77a60d30c2f474d67d030603cd8a0ed.obj"/>
+    <mesh name="l0_0" class="/" file="l0_0-bfd8421cca6fc421f583f72510ea3da7a0b62e33.obj"/>
+    <mesh name="l0_1" class="/" file="l0_1-7f935f81699f71e2767a0e7b56c346e82fc9bab9.obj"/>
+    <mesh name="l0_2" class="/" file="l0_2-e6dab98c0d1fecde91b82397fa06b19d6c1e152e.obj"/>
+    <mesh name="l0_3" class="/" file="l0_3-f3715a4a55225931c35c504a394399072f0600b3.obj"/>
+    <mesh name="l0_4" class="/" file="l0_4-a71b0e374f76a29b37d24b954db7b94f644578ae.obj"/>
+    <mesh name="l0_5" class="/" file="l0_5-a90e223b0c658f5b6081b6b6f496b9e05796bf73.obj"/>
+    <mesh name="l0_6" class="/" file="l0_6-cd6e50d1473c8481da615a7d692cf330380bccad.obj"/>
+    <mesh name="l1_0" class="/" file="l1_0-7eacbb6994c2159d56b7a89d2d31f5071140c948.obj"/>
+    <mesh name="l1_1" class="/" file="l1_1-4875b5910d9ab6a07903e2c5318decb9174ad0be.obj"/>
+    <mesh name="l1_2" class="/" file="l1_2-44bea896fd84e495c4265bec10dc967f8affd935.obj"/>
+    <mesh name="l2_0" class="/" file="l2_0-022f1d7c8810f7c9e9541fe792e03517cbddb6aa.obj"/>
+    <mesh name="l2_1" class="/" file="l2_1-923370617526fabafff02369c49738702485169f.obj"/>
+    <mesh name="l2_2" class="/" file="l2_2-959e4d3650afe70f07b1f58255213a316d0d0abe.obj"/>
+    <mesh name="l2_3" class="/" file="l2_3-38948a6a3102220ac502556b1e363a62f6091396.obj"/>
+    <mesh name="l2_4" class="/" file="l2_4-7c9bf06a2ac2f4b2b883e57a183a8197f8c64d38.obj"/>
+    <mesh name="l3_0" class="/" file="l3_0-bb317ad3801d0e1c5223c26dcbf64f4693784405.obj"/>
+    <mesh name="l3_1" class="/" file="l3_1-777964f977a151ee6b41bb61a6af9f9710f0e7f4.obj"/>
+    <mesh name="l3_2" class="/" file="l3_2-756aa2312b536f9746bb6bfdd3d8509ad7e3929e.obj"/>
+    <mesh name="l3_3" class="/" file="l3_3-2e69da71eaf6ae73a1e73298ea37177adcda1d41.obj"/>
+    <mesh name="l4_0" class="/" file="l4_0-ceaf8e6e14f6c3ad5e7b0b95af6baa1af3350c7f.obj"/>
+    <mesh name="l4_1" class="/" file="l4_1-19f599541b4d1ab5db1920fbbfd4ee30a191d994.obj"/>
+    <mesh name="l4_2" class="/" file="l4_2-932f9a67fe2b304e7de7820c3500d87732de4b2c.obj"/>
+    <mesh name="l4_3" class="/" file="l4_3-9240e8b597082b07a50bd172bb1dde42ca2153a9.obj"/>
+    <mesh name="l4_4" class="/" file="l4_4-d3d681a83da9f243a92340a9fae6374cae273994.obj"/>
+    <mesh name="l4_5" class="/" file="l4_5-55b47f2b9156cd57630b550dafd65dd6e10dc59d.obj"/>
+    <mesh name="l4_6" class="/" file="l4_6-e8a68ad1adca49c339fd4fc2d7528edf7b53013a.obj"/>
+    <mesh name="l4_7" class="/" file="l4_7-478a5fd5903a162860bd2242c29903f4d9d65b0b.obj"/>
+    <mesh name="l5_0" class="/" file="l5_0-e28b7c72f3b561a1e1fb13879e84d2be0ff379e4.obj"/>
+    <mesh name="l5_1" class="/" file="l5_1-39873ef73feae55d672b666abae66201b39f158b.obj"/>
+    <mesh name="l5_2" class="/" file="l5_2-2745d0fc90cb02cc28308c1f750efe818dd85dc4.obj"/>
+    <mesh name="l5_3" class="/" file="l5_3-02325eeb76b7f1987af3c999a6c59cc53dcfb33d.obj"/>
+    <mesh name="l5_4" class="/" file="l5_4-82c2d6db1cf0cdebf4e806d0c926f9d9c01300a9.obj"/>
+    <mesh name="l6_0" class="/" file="l6_0-ae26e99ee90c0ed8f02e80a1428baf10b4d61772.obj"/>
+    <mesh name="l6_1" class="/" file="l6_1-d99d2f1d57fa32940efc1c6cbca1014fc2f1190e.obj"/>
+    <mesh name="l6_2" class="/" file="l6_2-ac713e4bcaa3d4a5b5a1cad31ed774a421197fdd.obj"/>
+    <mesh name="l6_3" class="/" file="l6_3-8112b88536cbd4a72815b8c4681323c544cd9e93.obj"/>
+    <mesh name="l6_4" class="/" file="l6_4-30db8abfdbf4701baa5cdb387396d5b30cbbd498.obj"/>
+    <mesh name="l6_5" class="/" file="l6_5-343d89ac2f45b45d75a1b15d5df01e08cdf6632f.obj"/>
+    <mesh name="head_0" class="/" file="head_0-b2069d64f6f582a381f4a30b81c8306fd8cad95a.obj"/>
+    <mesh name="head_2" class="/" file="head_2-f4c910ba7a898bbe9ddb000c9d9d58bb96785f51.obj"/>
+    <mesh name="head_3" class="/" file="head_3-977f2e7873515cf9b082c05283476e6b6fcb02e2.obj"/>
+    <mesh name="head_5" class="/" file="head_5-ed3add44af8c0b2e8f59e6bc574419baa30e4526.obj"/>
+    <mesh name="head_6" class="/" file="head_6-cf9b4be1931aecae0daab7914957d4154b472cbe.obj"/>
+    <mesh name="head_7" class="/" file="head_7-68677af1b44b2c62a7677c2c3b0968d603ea479a.obj"/>
+    <mesh name="head_8" class="/" file="head_8-486757fc2b2d27d00511be06baf3b1e0d62c1280.obj"/>
+    <mesh name="head_9" class="/" file="head_9-e3cdd4d790d7df8896b0989ac2d9bfcd104b8cd4.obj"/>
+    <material name="allegro_right/black" class="allegro_right/" rgba="0.20000000000000001 0.20000000000000001 0.20000000000000001 1"/>
+    <material name="allegro_right/white" class="allegro_right/" rgba="0.90000000000000002 0.90000000000000002 0.90000000000000002 1"/>
+    <mesh name="allegro_right/base_link" class="allegro_right/" file="base_link-7836bd26b2e8c065fc75b7e51e2fbbf822d839a4.stl"/>
+    <mesh name="allegro_right/link_0.0" class="allegro_right/" file="link_0.0-12a82724ffe834458ce78987e5ee97931d18d6be.stl"/>
+    <mesh name="allegro_right/link_1.0" class="allegro_right/" file="link_1.0-8beb3a85ac93bcadd6887956bb5273cd4609ce35.stl"/>
+    <mesh name="allegro_right/link_2.0" class="allegro_right/" file="link_2.0-766a7c6987c20a3cbba963f04746bcc2fd8d2614.stl"/>
+    <mesh name="allegro_right/link_3.0" class="allegro_right/" file="link_3.0-068878c6ab2905e135e2a9fe75037e0242fc64cf.stl"/>
+    <mesh name="allegro_right/link_3.0_tip" class="allegro_right/" file="link_3.0_tip-b8c99e6c36b0f212f872e371ae0951f7d5b5ee25.stl"/>
+    <mesh name="allegro_right/link_12.0_right" class="allegro_right/" file="link_12.0_right-5e9f83a4a9a0d42c0fdb29a27e8f5fcbfa02cba0.stl"/>
+    <mesh name="allegro_right/link_13.0" class="allegro_right/" file="link_13.0-177d0ed60a05fc8004b58ac6229b7a7c182502bc.stl"/>
+    <mesh name="allegro_right/link_14.0" class="allegro_right/" file="link_14.0-543eb3697f9345671f649ea6249b0d777da497c2.stl"/>
+    <mesh name="allegro_right/link_15.0" class="allegro_right/" file="link_15.0-70d762d6e131e1b5aa9775d66dc405b0eebc35bf.stl"/>
+    <mesh name="allegro_right/link_15.0_tip" class="allegro_right/" file="link_15.0_tip-e455a81eb4eeac01d295e9d481eafec9277994bb.stl"/>
+  </asset>
+  <worldbody>
+    <light name="top" class="/" mode="trackcom" pos="0 0 2"/>
+    <body name="base" childclass="sawyer">
+      <inertial pos="-0.00062410000000000005 -2.8025e-05 0.065404000000000004" mass="2.0687000000000002" fullinertia="0.0067599000000000001 0.0067876999999999998 0.0074031000000000001 -4.2024000000000003e-05 -6.1903999999999996e-07 1.5888000000000001e-05"/>
+      <geom name="sawyer//unnamed_geom_0" class="visual" material="black" mesh="base_0"/>
+      <geom name="sawyer//unnamed_geom_1" class="visual" material="red" mesh="base_1"/>
+      <body name="right_l0" pos="0 0 0.080000000000000002">
+        <inertial pos="0.024364500000000001 0.010968800000000001 0.14363100000000001" quat="0.89482099999999998 0.0089945000000000008 -0.17027999999999999 0.412576" mass="5.3212999999999999" diaginertia="0.065159900000000007 0.051095399999999999 0.018622099999999999"/>
+        <joint name="right_j0" class="large_joint" range="-3.0503 3.0503"/>
+        <geom name="sawyer//unnamed_geom_2" class="visual" material="Mtl7" mesh="l0_0"/>
+        <geom name="sawyer//unnamed_geom_3" class="visual" material="off_white" mesh="l0_1"/>
+        <geom name="sawyer//unnamed_geom_4" class="visual" material="red" mesh="l0_2"/>
+        <geom name="sawyer//unnamed_geom_5" class="visual" material="Mtl4" mesh="l0_3"/>
+        <geom name="sawyer//unnamed_geom_6" class="visual" material="Mtl3" mesh="l0_4"/>
+        <geom name="sawyer//unnamed_geom_7" class="visual" material="white" mesh="l0_5"/>
+        <geom name="sawyer//unnamed_geom_8" class="visual" material="black" mesh="l0_6"/>
+        <geom name="sawyer//unnamed_geom_9" class="collision" size="0.070000000000000007" fromto="0 0 -0.0050000000000000001 0 0 0.25"/>
+        <body name="head" pos="0 0 0.29649999999999999">
+          <inertial pos="0.0053222599999999997 -2.6547299999999999e-05 0.1021" quat="0.99999300000000002 7.0838400000000003e-05 -0.0035981199999999998 -0.00062626700000000001" mass="1.5794999999999999" diaginertia="0.011833400000000001 0.0082709700000000008 0.0049658200000000001"/>
+          <geom name="sawyer//unnamed_geom_10" class="visual" material="black" mesh="head_0"/>
+          <geom name="sawyer//unnamed_geom_11" class="visual" material="off_white" mesh="head_2"/>
+          <geom name="sawyer//unnamed_geom_12" class="visual" material="Mtl7" mesh="head_3"/>
+          <geom name="sawyer//unnamed_geom_13" class="visual" material="black" mesh="head_5"/>
+          <geom name="sawyer//unnamed_geom_14" class="visual" material="white" mesh="head_6"/>
+          <geom name="sawyer//unnamed_geom_15" class="visual" material="dark_black" mesh="head_7"/>
+          <geom name="sawyer//unnamed_geom_16" class="visual" material="red" mesh="head_8"/>
+          <geom name="sawyer//unnamed_geom_17" class="visual" material="Mtl5.001" mesh="head_9"/>
+          <geom name="sawyer//unnamed_geom_18" class="collision" size="0.040000000000000001" fromto="-0.0050000000000000001 0 0.02 -0.0050000000000000001 0 0.20499999999999999"/>
+          <geom name="sawyer//unnamed_geom_19" class="collision" type="box" size="0.01 0.13 0.080000000000000002" pos="0.025000000000000001 0 0.10000000000000001"/>
+        </body>
+        <body name="right_l1" pos="0.081000000000000003 0.050000000000000003 0.23699999999999999" quat="1 -1 1 1">
+          <inertial pos="-0.0030848999999999998 -0.026811000000000001 0.092521000000000006" quat="0.42488799999999999 0.89198699999999997 0.13236400000000001 -0.079429399999999997" mass="4.5049999999999999" diaginertia="0.0224339 0.022162399999999999 0.0097097099999999999"/>
+          <joint name="right_j1" class="large_joint" range="-3.8094999999999999 2.2736000000000001"/>
+          <geom name="sawyer//unnamed_geom_20" class="visual" material="black" mesh="l1_0"/>
+          <geom name="sawyer//unnamed_geom_21" class="visual" material="red" mesh="l1_1"/>
+          <geom name="sawyer//unnamed_geom_22" class="visual" material="white" mesh="l1_2"/>
+          <geom name="sawyer//unnamed_geom_23" class="collision" size="0.068000000000000005" fromto="0 0 -0.059999999999999998 0 0 0.13"/>
+          <body name="right_l2" pos="0 -0.14000000000000001 0.14249999999999999" quat="1 1 0 0">
+            <inertial pos="-0.00016044 -0.014966999999999999 0.13582" quat="0.70783099999999999 -0.052476099999999998 0.051600600000000003 0.70253699999999997" mass="1.7450000000000001" diaginertia="0.025792800000000001 0.025506000000000001 0.00292516"/>
+            <joint name="right_j2" class="medium_joint" range="-3.0426000000000002 3.0426000000000002"/>
+            <geom name="sawyer//unnamed_geom_24" class="visual" material="off_white" mesh="l2_0"/>
+            <geom name="sawyer//unnamed_geom_25" class="visual" material="Mtl5.002" mesh="l2_1"/>
+            <geom name="sawyer//unnamed_geom_26" class="visual" material="white" mesh="l2_2"/>
+            <geom name="sawyer//unnamed_geom_27" class="visual" material="black" mesh="l2_3"/>
+            <geom name="sawyer//unnamed_geom_28" class="visual" material="red" mesh="l2_4"/>
+            <geom name="sawyer//unnamed_geom_29" class="collision" size="0.055" fromto="0 0 -0.14999999999999999 0 0 0.26000000000000001"/>
+            <body name="right_l3" pos="0 -0.042000000000000003 0.26000000000000001" quat="1 -1 0 0">
+              <inertial pos="-0.0048135000000000001 -0.0281 -0.084154000000000007" quat="0.902999 0.38539099999999998 -0.088090100000000005 0.16824700000000001" mass="2.5097" diaginertia="0.0102404 0.0096997000000000003 0.0036962200000000001"/>
+              <joint name="right_j3" class="medium_joint" range="-3.0438999999999998 3.0438999999999998"/>
+              <geom name="sawyer//unnamed_geom_30" class="visual" material="off_white" mesh="l3_0"/>
+              <geom name="sawyer//unnamed_geom_31" class="visual" material="red" mesh="l3_1"/>
+              <geom name="sawyer//unnamed_geom_32" class="visual" material="white" mesh="l3_2"/>
+              <geom name="sawyer//unnamed_geom_33" class="visual" material="black" mesh="l3_3"/>
+              <geom name="sawyer//unnamed_geom_34" class="collision" size="0.055" fromto="0 0 -0.115 0 0 0.029999999999999999"/>
+              <body name="right_l4" pos="0 -0.125 -0.1265" quat="1 1 0 0">
+                <inertial pos="-0.0018891699999999999 0.0068994800000000004 0.13409499999999999" quat="0.80324700000000004 0.031244000000000001 -0.0298409 0.59407699999999997" mass="1.1135999999999999" diaginertia="0.013655499999999999 0.013549800000000001 0.00127385"/>
+                <joint name="right_j4" class="small_joint" range="-2.9761000000000002 2.9761000000000002"/>
+                <geom name="sawyer//unnamed_geom_35" class="visual" material="Mtl7" mesh="l4_0"/>
+                <geom name="sawyer//unnamed_geom_36" class="visual" material="black" mesh="l4_1"/>
+                <geom name="sawyer//unnamed_geom_37" class="visual" material="Mtl6.002" mesh="l4_2"/>
+                <geom name="sawyer//unnamed_geom_38" class="visual" material="white" mesh="l4_3"/>
+                <geom name="sawyer//unnamed_geom_39" class="visual" material="off_white" mesh="l4_4"/>
+                <geom name="sawyer//unnamed_geom_40" class="visual" material="dark_black" mesh="l4_5"/>
+                <geom name="sawyer//unnamed_geom_41" class="visual" material="red" mesh="l4_6"/>
+                <geom name="sawyer//unnamed_geom_42" class="visual" material="black" mesh="l4_7"/>
+                <geom name="sawyer//unnamed_geom_43" class="collision" size="0.044999999999999998" fromto="0 0 -0.13 0 0 0.27000000000000002"/>
+                <body name="right_l5" pos="0 0.031 0.27500000000000002" quat="1 -1 0 0">
+                  <inertial pos="0.0061133000000000003 -0.023696999999999999 0.076415999999999998" quat="0.40407599999999999 0.91349999999999998 0.0473125 0.0015833500000000001" mass="1.5625" diaginertia="0.0047413100000000003 0.0042285700000000001 0.00190672"/>
+                  <joint name="right_j5" class="small_joint" range="-2.9761000000000002 2.9761000000000002"/>
+                  <geom name="sawyer//unnamed_geom_44" class="visual" material="Mtl5_001" mesh="l5_0"/>
+                  <geom name="sawyer//unnamed_geom_45" class="visual" material="Mtl4_001" mesh="l5_1"/>
+                  <geom name="sawyer//unnamed_geom_46" class="visual" material="white" mesh="l5_2"/>
+                  <geom name="sawyer//unnamed_geom_47" class="visual" material="red" mesh="l5_3"/>
+                  <geom name="sawyer//unnamed_geom_48" class="visual" material="black" mesh="l5_4"/>
+                  <geom name="sawyer//unnamed_geom_49" class="collision" size="0.044999999999999998" fromto="0 0 -0.02 0 0 0.10000000000000001"/>
+                  <geom name="sawyer//unnamed_geom_50" class="collision" size="0.044999999999999998" fromto="0 0 0.105 0 -0.082000000000000003 0.105"/>
+                  <body name="right_l6" pos="0 -0.11 0.1053" quat="0.0616248 0.061629999999999997 -0.70441600000000004 0.70441600000000004">
+                    <inertial pos="-8.0725999999999996e-06 0.0085838000000000008 -0.0049566000000000002" quat="0.47904400000000003 0.51563599999999998 -0.513069 0.49132100000000001" mass="0.32919999999999999" diaginertia="0.00036026800000000001 0.00031107800000000001 0.00021498399999999999"/>
+                    <joint name="right_j6" class="small_joint" range="-4.7123999999999997 4.7123999999999997"/>
+                    <geom name="sawyer//unnamed_geom_51" class="visual" material="Mtl4" mesh="l6_0"/>
+                    <geom name="sawyer//unnamed_geom_52" class="visual" material="white" mesh="l6_1"/>
+                    <geom name="sawyer//unnamed_geom_53" class="visual" material="red" mesh="l6_2"/>
+                    <geom name="sawyer//unnamed_geom_54" class="visual" material="black" mesh="l6_3"/>
+                    <geom name="sawyer//unnamed_geom_55" class="visual" material="black" mesh="l6_4"/>
+                    <geom name="sawyer//unnamed_geom_56" class="visual" material="black" mesh="l6_5"/>
+                    <geom name="sawyer//unnamed_geom_57" class="eef_collision" size="0.044999999999999998 0.02"/>
+                    <site name="attachment_site" pos="0 0 0.024500000000000001" quat="0 0 0 1"/>
+                  </body>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+    <body name="allegro_right/">
+      <body name="allegro_right/palm" childclass="allegro_right/allegro_right" quat="0 1 0 1">
+        <geom name="sawyer/allegro_right//unnamed_geom_0" class="allegro_right/palm_visual" mesh="allegro_right/base_link"/>
+        <geom name="sawyer/allegro_right//unnamed_geom_1" class="allegro_right/palm_collision"/>
+        <body name="allegro_right/ff_base" pos="0 0.043499999999999997 -0.001542" quat="0.99904800000000005 -0.043619400000000003 0 0">
+          <joint name="allegro_right/ffj0" class="allegro_right/base"/>
+          <geom name="sawyer/allegro_right//unnamed_geom_2" class="allegro_right/base_visual"/>
+          <geom name="sawyer/allegro_right//unnamed_geom_3" class="allegro_right/base_collision"/>
+          <body name="allegro_right/ff_proximal" pos="0 0 0.016400000000000001">
+            <joint name="allegro_right/ffj1" class="allegro_right/proximal"/>
+            <geom name="sawyer/allegro_right//unnamed_geom_4" class="allegro_right/proximal_visual"/>
+            <geom name="sawyer/allegro_right//unnamed_geom_5" class="allegro_right/proximal_collision"/>
+            <body name="allegro_right/ff_medial" pos="0 0 0.053999999999999999">
+              <joint name="allegro_right/ffj2" class="allegro_right/medial"/>
+              <geom name="sawyer/allegro_right//unnamed_geom_6" class="allegro_right/medial_visual"/>
+              <geom name="sawyer/allegro_right//unnamed_geom_7" class="allegro_right/medial_collision"/>
+              <body name="allegro_right/ff_distal" pos="0 0 0.038399999999999997">
+                <joint name="allegro_right/ffj3" class="allegro_right/distal"/>
+                <geom name="sawyer/allegro_right//unnamed_geom_8" class="allegro_right/distal_visual"/>
+                <geom name="sawyer/allegro_right//unnamed_geom_9" class="allegro_right/distal_collision"/>
+                <body name="allegro_right/ff_tip">
+                  <geom name="sawyer/allegro_right//unnamed_geom_10" class="allegro_right/fingertip_visual"/>
+                  <geom name="sawyer/allegro_right//unnamed_geom_11" class="allegro_right/fingertip_collision"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="allegro_right/mf_base" pos="0 0 0.00069999999999999999">
+          <joint name="allegro_right/mfj0" class="allegro_right/base"/>
+          <geom name="sawyer/allegro_right//unnamed_geom_12" class="allegro_right/base_visual"/>
+          <geom name="sawyer/allegro_right//unnamed_geom_13" class="allegro_right/base_collision"/>
+          <body name="allegro_right/mf_proximal" pos="0 0 0.016400000000000001">
+            <joint name="allegro_right/mfj1" class="allegro_right/proximal"/>
+            <geom name="sawyer/allegro_right//unnamed_geom_14" class="allegro_right/proximal_visual"/>
+            <geom name="sawyer/allegro_right//unnamed_geom_15" class="allegro_right/proximal_collision"/>
+            <body name="allegro_right/mf_medial" pos="0 0 0.053999999999999999">
+              <joint name="allegro_right/mfj2" class="allegro_right/medial"/>
+              <geom name="sawyer/allegro_right//unnamed_geom_16" class="allegro_right/medial_visual"/>
+              <geom name="sawyer/allegro_right//unnamed_geom_17" class="allegro_right/medial_collision"/>
+              <body name="allegro_right/mf_distal" pos="0 0 0.038399999999999997">
+                <joint name="allegro_right/mfj3" class="allegro_right/distal"/>
+                <geom name="sawyer/allegro_right//unnamed_geom_18" class="allegro_right/distal_visual"/>
+                <geom name="sawyer/allegro_right//unnamed_geom_19" class="allegro_right/distal_collision"/>
+                <body name="allegro_right/mf_tip">
+                  <geom name="sawyer/allegro_right//unnamed_geom_20" class="allegro_right/fingertip_visual"/>
+                  <geom name="sawyer/allegro_right//unnamed_geom_21" class="allegro_right/fingertip_collision"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="allegro_right/rf_base" pos="0 -0.043499999999999997 -0.001542" quat="0.99904800000000005 0.043619400000000003 0 0">
+          <joint name="allegro_right/rfj0" class="allegro_right/base"/>
+          <geom name="sawyer/allegro_right//unnamed_geom_22" class="allegro_right/base_visual"/>
+          <geom name="sawyer/allegro_right//unnamed_geom_23" class="allegro_right/base_collision"/>
+          <body name="allegro_right/rf_proximal" pos="0 0 0.016400000000000001">
+            <joint name="allegro_right/rfj1" class="allegro_right/proximal"/>
+            <geom name="sawyer/allegro_right//unnamed_geom_24" class="allegro_right/proximal_visual"/>
+            <geom name="sawyer/allegro_right//unnamed_geom_25" class="allegro_right/proximal_collision"/>
+            <body name="allegro_right/rf_medial" pos="0 0 0.053999999999999999">
+              <joint name="allegro_right/rfj2" class="allegro_right/medial"/>
+              <geom name="sawyer/allegro_right//unnamed_geom_26" class="allegro_right/medial_visual"/>
+              <geom name="sawyer/allegro_right//unnamed_geom_27" class="allegro_right/medial_collision"/>
+              <body name="allegro_right/rf_distal" pos="0 0 0.038399999999999997">
+                <joint name="allegro_right/rfj3" class="allegro_right/distal"/>
+                <geom name="sawyer/allegro_right//unnamed_geom_28" class="allegro_right/distal_visual"/>
+                <geom name="sawyer/allegro_right//unnamed_geom_29" class="allegro_right/distal_collision"/>
+                <body name="allegro_right/rf_tip">
+                  <geom name="sawyer/allegro_right//unnamed_geom_30" class="allegro_right/fingertip_visual"/>
+                  <geom name="sawyer/allegro_right//unnamed_geom_31" class="allegro_right/fingertip_collision"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+        <body name="allegro_right/th_base" pos="-0.018200000000000001 0.019332999999999999 -0.045987" quat="0.47771400000000003 -0.52133399999999996 -0.52133399999999996 -0.47771400000000003">
+          <joint name="allegro_right/thj0" class="allegro_right/thumb_base"/>
+          <geom name="sawyer/allegro_right//unnamed_geom_32" class="allegro_right/visual" mesh="allegro_right/link_12.0_right"/>
+          <geom name="sawyer/allegro_right//unnamed_geom_33" class="allegro_right/thumb_base_collision"/>
+          <body name="allegro_right/th_proximal" pos="-0.027 0.0050000000000000001 0.039899999999999998">
+            <joint name="allegro_right/thj1" class="allegro_right/thumb_proximal"/>
+            <geom name="sawyer/allegro_right//unnamed_geom_34" class="allegro_right/visual" mesh="allegro_right/link_13.0"/>
+            <geom name="sawyer/allegro_right//unnamed_geom_35" class="allegro_right/thumb_proximal_collision"/>
+            <body name="allegro_right/th_medial" pos="0 0 0.0177">
+              <joint name="allegro_right/thj2" class="allegro_right/thumb_medial"/>
+              <geom name="sawyer/allegro_right//unnamed_geom_36" class="allegro_right/visual" mesh="allegro_right/link_14.0"/>
+              <geom name="sawyer/allegro_right//unnamed_geom_37" class="allegro_right/thumb_medial_collision"/>
+              <body name="allegro_right/th_distal" pos="0 0 0.051400000000000001">
+                <joint name="allegro_right/thj3" class="allegro_right/thumb_distal"/>
+                <geom name="sawyer/allegro_right//unnamed_geom_38" class="allegro_right/visual" mesh="allegro_right/link_15.0"/>
+                <geom name="sawyer/allegro_right//unnamed_geom_39" class="allegro_right/thumb_distal_collision"/>
+                <body name="allegro_right/th_tip">
+                  <geom name="sawyer/allegro_right//unnamed_geom_40" class="allegro_right/thumbtip_visual"/>
+                  <geom name="sawyer/allegro_right//unnamed_geom_41" class="allegro_right/thumbtip_collision"/>
+                </body>
+              </body>
+            </body>
+          </body>
+        </body>
+      </body>
+    </body>
+  </worldbody>
+  <contact>
+    <exclude name="sawyer//unnamed_contact_0" body1="base" body2="right_l0"/>
+    <exclude name="sawyer/allegro_right//unnamed_contact_0" body1="allegro_right/palm" body2="allegro_right/ff_base"/>
+    <exclude name="sawyer/allegro_right//unnamed_contact_1" body1="allegro_right/palm" body2="allegro_right/mf_base"/>
+    <exclude name="sawyer/allegro_right//unnamed_contact_2" body1="allegro_right/palm" body2="allegro_right/rf_base"/>
+    <exclude name="sawyer/allegro_right//unnamed_contact_3" body1="allegro_right/palm" body2="allegro_right/th_base"/>
+    <exclude name="sawyer/allegro_right//unnamed_contact_4" body1="allegro_right/palm" body2="allegro_right/th_proximal"/>
+  </contact>
+  <actuator>
+    <general name="a0" class="large_joint" ctrlrange="-3.0503 3.0503" joint="right_j0"/>
+    <general name="a1" class="large_joint" ctrlrange="-3.8094999999999999 2.2736000000000001" joint="right_j1"/>
+    <general name="a2" class="medium_joint" ctrlrange="-3.0426000000000002 3.0426000000000002" joint="right_j2"/>
+    <general name="a3" class="medium_joint" ctrlrange="-3.0438999999999998 3.0438999999999998" joint="right_j3"/>
+    <general name="a4" class="small_joint" ctrlrange="-2.9761000000000002 2.9761000000000002" joint="right_j4"/>
+    <general name="a5" class="small_joint" ctrlrange="-2.9761000000000002 2.9761000000000002" joint="right_j5"/>
+    <general name="a6" class="small_joint" ctrlrange="-4.7123999999999997 4.7123999999999997" joint="right_j6"/>
+    <position name="allegro_right/ffa0" class="allegro_right/base" joint="allegro_right/ffj0"/>
+    <position name="allegro_right/ffa1" class="allegro_right/proximal" joint="allegro_right/ffj1"/>
+    <position name="allegro_right/ffa2" class="allegro_right/medial" joint="allegro_right/ffj2"/>
+    <position name="allegro_right/ffa3" class="allegro_right/distal" joint="allegro_right/ffj3"/>
+    <position name="allegro_right/mfa0" class="allegro_right/base" joint="allegro_right/mfj0"/>
+    <position name="allegro_right/mfa1" class="allegro_right/proximal" joint="allegro_right/mfj1"/>
+    <position name="allegro_right/mfa2" class="allegro_right/medial" joint="allegro_right/mfj2"/>
+    <position name="allegro_right/mfa3" class="allegro_right/distal" joint="allegro_right/mfj3"/>
+    <position name="allegro_right/rfa0" class="allegro_right/base" joint="allegro_right/rfj0"/>
+    <position name="allegro_right/rfa1" class="allegro_right/proximal" joint="allegro_right/rfj1"/>
+    <position name="allegro_right/rfa2" class="allegro_right/medial" joint="allegro_right/rfj2"/>
+    <position name="allegro_right/rfa3" class="allegro_right/distal" joint="allegro_right/rfj3"/>
+    <position name="allegro_right/tha0" class="allegro_right/thumb_base" joint="allegro_right/thj0"/>
+    <position name="allegro_right/tha1" class="allegro_right/thumb_proximal" joint="allegro_right/thj1"/>
+    <position name="allegro_right/tha2" class="allegro_right/thumb_medial" joint="allegro_right/thj2"/>
+    <position name="allegro_right/tha3" class="allegro_right/thumb_distal" joint="allegro_right/thj3"/>
+  </actuator>
+</mujoco>
